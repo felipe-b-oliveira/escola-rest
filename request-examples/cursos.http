@@ -1,0 +1,24 @@
+GET http://localhost:3000/cursos
+
+###
+GET http://localhost:3000/cursos/:nomeCurso
+
+###
+POST http://localhost:3000/cursos
+Content-Type: application/json
+
+{
+  "nome": "Nome do curso"
+}
+
+###
+PUT http://localhost:3000/cursos/:_id
+Content-Type: application/json
+
+{
+  "nome": "Nome do curso"
+}
+
+###
+DELETE http://localhost:3000/cursos/:_id
+Content-Type: application/json

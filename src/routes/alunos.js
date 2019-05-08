@@ -1,12 +1,16 @@
-const route = require("express").Router();
+const router = require('express').Router();
+const alunoController = require('../controllers/alunos');
+const validateId = require('../middlewares/validateId');
+const validateAlunoBody = require('../middlewares/validateAlunoBody');
 
-route.get("/", (req, res) => {
+router.get('/', alunoController.findAll);
 
-    return res.send("Testando aluno.");
+router.get('/:_id', validateId, alunoController.findById);
 
-});
+router.post('/', validateAlunoBody, alunoController.create);
 
-module.exports = route;
+router.put('/:_id', validateId, validateAlunoBody, alunoController.update);
 
+router.delete('/:_id', validateId, alunoController.deleteById);
 
-
+module.exports = router;
